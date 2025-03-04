@@ -1,4 +1,4 @@
-import { logoutAccount } from '@/app/lib/actions/user.actions'
+import { logoutAccount } from '@/lib/actions/user.actions'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import React from 'react'
@@ -16,7 +16,7 @@ const Footer = ({ user, type = 'desktop' }: FooterProps) => {
     <footer className="footer">
       <div className={type === 'mobile' ? 'footer_name-mobile' : 'footer_name'}>
         <p className="text-xl font-bold text-gray-700">
-          {user?.name[0]}
+          {user?.firstName[0]}
         </p>
       </div>
 

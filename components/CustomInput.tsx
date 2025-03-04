@@ -4,7 +4,7 @@ import { Input } from './ui/input'
 
 import { Control, FieldPath } from 'react-hook-form'
 import { z } from 'zod'
-import { authFormSchema } from '@/app/lib/utils'
+import { authFormSchema } from '@/lib/utils'
 
 const formSchema = authFormSchema('sign-up')
 

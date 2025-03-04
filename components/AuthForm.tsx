@@ -7,7 +7,7 @@ import React, { useState } from 'react'
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { Button } from "@/app/componets/ui/button"
+import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
@@ -16,14 +16,19 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/app/componets/ui/form"
-import { Input } from "@/app/componets/ui/input"
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
 import CustomInput from './CustomInput';
-import { authFormSchema } from '@/app/lib/utils';
+import { authFormSchema } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { getLoggedInUser, signIn, signUp } from '@/app/lib/actions/user.actions';
-// import PlaidLink from './PlaidLink';
+import { getLoggedInUser, signIn, signUp } from '@/lib/actions/user.actions';
+import PlaidLink from './PlaidLink';
+
+
+interface userT {
+  user: User
+}
 
 const AuthForm = ({ type }: { type: string }) => {
   const router = useRouter();
@@ -88,8 +93,8 @@ const AuthForm = ({ type }: { type: string }) => {
           <Link href="/" className="cursor-pointer flex items-center gap-1">
             <Image 
               src="/icons/logo.svg"
-              width={50}
-              height={50}
+              width={34}
+              height={34}
               alt="owo logo"
             />
             <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">Owo</h1>
@@ -114,7 +119,7 @@ const AuthForm = ({ type }: { type: string }) => {
       </header>
       {user ? (
         <div className="flex flex-col gap-4">
-          {/* <PlaidLink user={user} variant="primary" /> */}
+          <PlaidLink user={user} variant="primary" />
         </div>
       ): (
         <>
